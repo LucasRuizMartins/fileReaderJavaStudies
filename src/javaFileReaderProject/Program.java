@@ -15,6 +15,8 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		String path = "c:\\Program1\\in.txt";
 		String pathOut = "c:\\Program1\\out.txt";
+		
+		File teste = new File (path);
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
@@ -54,12 +56,17 @@ public class Program {
 		// Função para Listar somente os arquivos
 		File[] files = pathFolder.listFiles(File::isFile);
 		System.out.println("FILES :");
-		for (File file:files) {
+		for (File file : files) {
 			System.out.println(file);
-			
+
 		}
-		
+		// criar nova pasta se o boolean for True
 		boolean sucess = new File(pathFolder + "\\newFolder").mkdir();
+
+		System.out.println("getname :" + teste.getName());
+		System.out.println("getParent :" + teste.getName());
+		System.out.println("getPath :" + teste.getName());
+		
 		
 		sc.close();
 	}
