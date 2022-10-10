@@ -8,15 +8,9 @@ public class Program {
 
 	public static void main(String[] args) {
 
-		String path = "c:\\Program\\in.txt";
-		FileReader fr = null;
-		BufferedReader br = null;
+		String path = "c:\\Program1\\in.txt";
 
-		try {
-
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
 
 			while (line != null) {
@@ -27,20 +21,6 @@ public class Program {
 		} catch (IOException e) {
 			System.out.println("ERROR" + e.getMessage());
 
-		} finally {
-			try {
-
-				if (br != null) {
-					br.close();
-				}
-				if (fr != null) {
-					fr.close();
-				}
-			}
-
-			catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 }
